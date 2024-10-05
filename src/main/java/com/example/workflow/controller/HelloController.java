@@ -14,7 +14,7 @@ public class HelloController {
     public String getMessage() {
 
         ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
-        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("First_BPMN");
+        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("first_bpmn_execute");
         String item = "Computer";
         instance.setVariable("itemName", item);
         instance.businessKey("hello-endpoint");
@@ -26,7 +26,7 @@ public class HelloController {
     @RequestMapping(value = "/task", method = RequestMethod.GET)
     public String execute() {
         ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
-        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("tasks");
+        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("tasks_execute");
         instance.executeWithVariablesInReturn();
         return "Camunda Task Successfully Execute";
     }
@@ -34,7 +34,7 @@ public class HelloController {
     @RequestMapping(value = "/sequence_flow", method = RequestMethod.GET)
     public String executes() {
         ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
-        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("sequence_flow-execute");
+        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("sequence_flow_execute");
         instance.executeWithVariablesInReturn();
         return "Camunda Task Successfully Execute";
     }
