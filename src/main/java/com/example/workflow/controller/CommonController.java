@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommonController {
 
     /**
-     * As a path variable pass camunda keys
+     * As a path variable pass camunda id
      * first_bpmn_execute
      * tasks_execute
      * sequence_flow_execute
