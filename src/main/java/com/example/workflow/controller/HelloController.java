@@ -34,7 +34,7 @@ public class HelloController {
     @RequestMapping(value = "/sequence_flow", method = RequestMethod.GET)
     public String executes() {
         ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
-        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("sequence_flow");
+        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("sequence_flow-execute");
         instance.executeWithVariablesInReturn();
         return "Camunda Task Successfully Execute";
     }
