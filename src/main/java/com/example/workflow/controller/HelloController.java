@@ -30,4 +30,12 @@ public class HelloController {
         instance.executeWithVariablesInReturn();
         return "Camunda Task Successfully Execute";
     }
+
+    @RequestMapping(value = "/sequence_flow", method = RequestMethod.GET)
+    public String executes() {
+        ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
+        ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("sequence_flow");
+        instance.executeWithVariablesInReturn();
+        return "Camunda Task Successfully Execute";
+    }
 }
