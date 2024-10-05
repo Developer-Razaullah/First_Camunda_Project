@@ -190,11 +190,11 @@ response;</camunda:script>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1qobqf3" sourceRef="Activity_1srbwzl" targetRef="TextAnnotation_05sbx7m" />
     <bpmn:textAnnotation id="TextAnnotation_1yvuks8">
-      <bpmn:text>End Task</bpmn:text>
+      <bpmn:text>End Event</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_17ulbpq" sourceRef="Event_0uptu4e" targetRef="TextAnnotation_1yvuks8" />
     <bpmn:textAnnotation id="TextAnnotation_14aqbzg">
-      <bpmn:text>Start Task</bpmn:text>
+      <bpmn:text>Start Event</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0w7jym4" sourceRef="StartEvent_1" targetRef="TextAnnotation_14aqbzg" />
   </bpmn:process>
@@ -222,10 +222,10 @@ response;</camunda:script>
         <dc:Bounds x="1240" y="90" width="140" height="39" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1yvuks8_di" bpmnElement="TextAnnotation_1yvuks8">
-        <dc:Bounds x="1370" y="95" width="99.99156545209178" height="29.984817813765183" />
+        <dc:Bounds x="1370" y="90" width="99.99156545209178" height="34.982287449392715" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_14aqbzg_di" bpmnElement="TextAnnotation_14aqbzg">
-        <dc:Bounds x="150" y="100" width="99.99156545209178" height="29.984817813765183" />
+        <dc:Bounds x="150" y="95" width="99.99156545209178" height="34.982287449392715" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0b6apo7_di" bpmnElement="Flow_0b6apo7">
         <di:waypoint x="530" y="207" />
