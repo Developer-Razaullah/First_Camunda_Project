@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0xw51g1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="dmns_execute" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1xfva3n</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1xfva3n" sourceRef="StartEvent_1" targetRef="Activity_1xc1frc" />
+    <bpmn:scriptTask id="Activity_1xc1frc" name="user Object" scriptFormat="JavaScript" camunda:resultVariable="userObj">
+      <bpmn:incoming>Flow_1xfva3n</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yv2smb</bpmn:outgoing>
+      <bpmn:script>var user = {
+    id: 1,
+    name: 'A',
+    age: 22,
+    creditScore: 700
+}
+
+user;</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_1yv2smb" sourceRef="Activity_1xc1frc" targetRef="Activity_0k6lqlp" />
+    <bpmn:businessRuleTask id="Activity_0k6lqlp" name="Loan Eligibity" camunda:resultVariable="isEligibilityForLoan" camunda:decisionRef="eligibility_for_loan_dmn" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_1yv2smb</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qwpoww</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_0qwpoww" sourceRef="Activity_0k6lqlp" targetRef="Activity_0w88lrj" />
+    <bpmn:scriptTask id="Activity_0w88lrj" name="print Eligibility value" scriptFormat="JavaScript">
+      <bpmn:incoming>Flow_0qwpoww</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jy9gmh</bpmn:outgoing>
+      <bpmn:script>print('This user:'+JSON.stringify(userObj)+' Eligible for loan:'+isEligibilityForLoan);</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="Event_14v4xcv">
+      <bpmn:incoming>Flow_1jy9gmh</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1jy9gmh" sourceRef="Activity_0w88lrj" targetRef="Event_14v4xcv" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="dmns_execute">
+      <bpmndi:BPMNEdge id="Flow_1xfva3n_di" bpmnElement="Flow_1xfva3n">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="320" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yv2smb_di" bpmnElement="Flow_1yv2smb">
+        <di:waypoint x="420" y="117" />
+        <di:waypoint x="530" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qwpoww_di" bpmnElement="Flow_0qwpoww">
+        <di:waypoint x="630" y="117" />
+        <di:waypoint x="740" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jy9gmh_di" bpmnElement="Flow_1jy9gmh">
+        <di:waypoint x="840" y="117" />
+        <di:waypoint x="952" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1q9va9j_di" bpmnElement="Activity_1xc1frc">
+        <dc:Bounds x="320" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1tn271i_di" bpmnElement="Activity_0k6lqlp">
+        <dc:Bounds x="530" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0idnn13_di" bpmnElement="Activity_0w88lrj">
+        <dc:Bounds x="740" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_14v4xcv_di" bpmnElement="Event_14v4xcv">
+        <dc:Bounds x="952" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
