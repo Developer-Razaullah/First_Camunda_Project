@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Subject_Id_execute" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="Subject_Id_By_Name" name="Subject Decision">
+    <decisionTable id="DecisionTable_1iam1bv">
+      <input id="Input_1" label="Subject Id" camunda:inputVariable="subjectId">
+        <inputExpression id="InputExpression_1" typeRef="integer" expressionLanguage="javascript">
+          <text>subjectObj.id;</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Subject Name" name="subjectName" typeRef="string" />
+      <rule id="DecisionRule_0g0ro8m">
+        <inputEntry id="UnaryTests_1msvlon">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u1cwi8">
+          <text>"English"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xdl9cb">
+        <inputEntry id="UnaryTests_1ag27px">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0s6129a">
+          <text>"Mathematics"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zjn60m">
+        <inputEntry id="UnaryTests_1a6wbn7">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10dvqpc">
+          <text>"Science"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tb7x54">
+        <inputEntry id="UnaryTests_0a46k04">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05mzpem">
+          <text>"Social Studies"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Subject_Id_By_Name">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
