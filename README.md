@@ -1,3 +1,3 @@
 # First_Camunda_Project
 
-To setup camunda project from this endpoint https://start.camunda.com
+To create camunda project you can use this endpoint https://start.camunda.com to create camunda project.
