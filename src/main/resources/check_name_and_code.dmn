@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="check_name_and_code_dmn" name="Check Name and Code" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="check_name_and_code_dmn_execute" name="Check Code and Name">
+    <decisionTable id="DecisionTable_1c2nmpm" hitPolicy="ANY">
+      <input id="Input_1" label="Subject Name" camunda:inputVariable="subjectName">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="javascript">
+          <text>subjectObj.name;</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_03vwzu0" label="Subject Code" camunda:inputVariable="subjectCode">
+        <inputExpression id="LiteralExpression_1gtxe1n" typeRef="string" expressionLanguage="javascript">
+          <text>subjectObj.code;</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Subject Object Result" name="errorMessage" typeRef="string" />
+      <rule id="DecisionRule_0qahxt1">
+        <inputEntry id="UnaryTests_0cm4b61" expressionLanguage="javascript">
+          <text>subjectName == '' || subjectName == null;</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v1rnlh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17z9p91">
+          <text>"Subject Name is missing"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19z3o7g">
+        <inputEntry id="UnaryTests_0py0rhq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mhc76o" expressionLanguage="javascript">
+          <text>subjectCode == '' || subjectCode == null;</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vqq7qj">
+          <text>"Subject Code is missing"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="check_name_and_code_dmn_execute">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
