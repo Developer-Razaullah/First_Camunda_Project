@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_01r0zif" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="subject_validation_multi_instance_dmn" name="Subject Validation">
+    <decisionTable id="DecisionTable_156yo3k" hitPolicy="RULE ORDER">
+      <input id="Input_1" label="Check for Empty values" biodi:width="338" camunda:inputVariable="notRequired">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>"notRequired"</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Error Message" name="errorMessage" typeRef="string" />
+      <output id="OutputClause_19279kb" label="Field" name="field" typeRef="string" />
+      <output id="OutputClause_1de61vl" label="Subject Id" name="subjectId" typeRef="string" />
+      <rule id="DecisionRule_046ou5i">
+        <inputEntry id="UnaryTests_0hwg8ku" expressionLanguage="javascript">
+          <text>subjectObj.prop('displayName').value() === '' || subjectObj.prop('displayName').value() === null</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09rnhno">
+          <text>"Subject Display Name is blank."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mmzwfh">
+          <text>"displayName"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1me8f5m" expressionLanguage="javascript">
+          <text>subjectObj.prop('id').value();</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bokyd9">
+        <inputEntry id="UnaryTests_0hg83sr" expressionLanguage="javascript">
+          <text>subjectObj.prop('code').value() === '' || subjectObj.prop('code').value() === null</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1547fg9">
+          <text>"Subject Code is blank."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01kkmab">
+          <text>"code"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1huiaph" expressionLanguage="javascript">
+          <text>subjectObj.prop('id').value();</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vrapvs">
+        <inputEntry id="UnaryTests_1kugvsn" expressionLanguage="javascript">
+          <text>subjectObj.prop('subjectTeacherId').value() === '' || subjectObj.prop('subjectTeacherId').value() === null</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13ughru">
+          <text>"Subject Teacher Id is blank."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0xl1zz7">
+          <text>"subjectTeacherId"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1q4sssw" expressionLanguage="javascript">
+          <text>subjectObj.prop('id').value();</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oypmx8">
+        <inputEntry id="UnaryTests_1h7rtw6" expressionLanguage="javascript">
+          <text>subjectObj.prop('subjectTeacherName').value() === '' || subjectObj.prop('subjectTeacherName').value() === null</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f6s5zw">
+          <text>"Subject Teacher Name is blank."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0y2uddt">
+          <text>"subjectTeacherName"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1c6o3sa" expressionLanguage="javascript">
+          <text>subjectObj.prop('id').value();</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="subject_validation_multi_instance_dmn">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
